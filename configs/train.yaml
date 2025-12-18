@@ -1,0 +1,77 @@
+defaults:
+  - basic
+  - model: diffusion
+  - data@data_dict: edit
+  - loss@loss_fn: identity
+  - _self_
+
+exp_name: editing_test_toy1
+exp_dir: experiments/${exp_name}/
+logging_file: ${exp_dir}/train.log
+
+train_dataloader:
+  _target_: torchdata.stateful_dataloader.StatefulDataLoader
+  dataset:
+    _target_: data_module.dataset.AudioGenConcatDataset
+    datasets: ${data_dict.train_data_list}
+  batch_size: 24 # per device batch size
+  shuffle: True
+  num_workers: 4
+  collate_fn:
+    _target_: data_module.collate_function.PaddingCollate
+    pad_keys: ["waveform"]
+    torchify_keys: ["is_time_aligned"]
+
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  dataset:
+    _target_: data_module.dataset.AudioGenConcatDataset
+    datasets: ${data_dict.val_data_list}
+  batch_size: 24 # per device batch size
+  shuffle: False
+  num_workers: 4
+  collate_fn:
+    _target_: data_module.collate_function.PaddingCollate
+    pad_keys: ["waveform"]
+    torchify_keys: ["is_time_aligned"]
+
+warmup_params:
+  warmup_steps: 1000
+  warmup_epochs: Null
+  epoch_length: ${epoch_length}
+
+gradient_accumulation_steps: 1
+
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: !!float 5e-5
+  weight_decay: 0.01
+
+lr_scheduler:
+  _target_: "transformers.get_scheduler"
+  name: "linear"
+
+epochs: 100
+epoch_length: null
+
+trainer:
+  _target_: audio_generation_trainer.AudioGenerationTrainer
+  logging_file: ${logging_file}
+  project_dir: ${exp_dir}
+  gradient_accumulation_steps: ${gradient_accumulation_steps}
+  max_grad_norm: 1.0
+  epochs: ${epochs}
+  epoch_length: ${epoch_length}
+  save_last_k: 2
+  early_stop: Null
+  logger: swanlab
+  wandb_config:
+    _target_: trainer.WandbConfig
+    project: mmedit
+    save_dir: ${exp_dir}
+    name: ${exp_name}
+    resume_id: Null
+  metric_monitor:
+    _target_: trainer.MetricMonitor
+    metric_name: loss
+    mode: min

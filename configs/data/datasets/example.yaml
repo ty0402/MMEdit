@@ -1,0 +1,6 @@
+test:
+  _target_: data_module.dataset.AudioeditingDataset
+  content: example/content.jsonl
+  target_sr: ${sample_rate}
+  downsampling_ratio: ${downsampling_ratio}
+  use_h5_cache: False

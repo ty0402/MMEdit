@@ -1,0 +1,22 @@
+train:
+  _target_: data_module.dataset.AudioeditingDataset
+  content: /mnt/petrelfs/taoye/workspace/x_to_audio_generation/toydata/order2/train/content.jsonl # raw audio and caption
+  audio: /mnt/petrelfs/taoye/workspace/x_to_audio_generation/toydata/order2/train/audio.jsonl      # edited
+  target_sr: ${sample_rate}
+  downsampling_ratio: ${downsampling_ratio}
+  use_h5_cache: False
+
+val:
+  _target_: data_module.dataset.AudioeditingDataset
+  content: /mnt/petrelfs/taoye/workspace/x_to_audio_generation/toydata/order2/val/content.jsonl
+  audio: /mnt/petrelfs/taoye/workspace/x_to_audio_generation/toydata/order2/val/audio.jsonl
+  target_sr: ${sample_rate}
+  downsampling_ratio: ${downsampling_ratio}
+  use_h5_cache: False
+
+test:
+  _target_: data_module.dataset.AudioeditingDataset
+  content: /mnt/petrelfs/taoye/workspace/x_to_audio_generation/toydata/order2/test/filtered_output.jsonl
+  target_sr: ${sample_rate}
+  downsampling_ratio: ${downsampling_ratio}
+  use_h5_cache: False

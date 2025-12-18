@@ -1,0 +1,19 @@
+defaults:
+  - default
+  - _self_
+
+train_data_list:
+  - ${..add.train}
+  - ${..drop.train}
+  - ${..order.train}
+  - ${..replace.train}
+  - ${..loud.train}
+  - ${..speed.train}
+
+val_data_list:
+  - ${..add.val}
+  - ${..drop.val}
+  - ${..order.val}
+  - ${..replace.val}
+  - ${..loud.val}
+  - ${..speed.val}

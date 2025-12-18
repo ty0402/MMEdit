@@ -1,0 +1,8 @@
+sample_rate: 24000
+downsampling_ratio: 480
+seed: 42
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

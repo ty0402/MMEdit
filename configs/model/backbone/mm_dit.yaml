@@ -1,0 +1,17 @@
+_target_: models.dit.mmdit_back_new.MMAudio
+latent_dim: 128              
+text_dim: 1024                
+hidden_dim: 1024             
+depth: 12                    
+fused_depth: 8               
+num_heads: 16               
+mlp_ratio: 4.0               
+
+
+latent_seq_len: 500          
+text_seq_len: 320           
+
+
+ta_context_dim: 128          
+ta_context_fusion: "concat"  
+ta_context_norm: False       

@@ -1,0 +1,8 @@
+defaults:
+  - datasets@example: example
+  - datasets@add: add
+  - datasets@drop: drop
+  - datasets@order: order
+  - datasets@replace: replace
+  - datasets@loud: loud
+  - datasets@speed: speed

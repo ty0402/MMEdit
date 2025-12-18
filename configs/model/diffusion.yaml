@@ -1,0 +1,27 @@
+defaults:
+  - autoencoder: stable_vae
+  - backbone: input_fusion_dit
+  - _self_
+
+content_dim: 1024
+noise_scheduler_name: "stabilityai/stable-diffusion-2-1"
+snr_gamma: 5.0
+cfg_drop_ratio: 0.2
+
+backbone:
+  context_dim: ${..content_dim}
+  ta_context_dim: 128
+
+
+_target_: models.diffusion.SingleTaskCrossAttentionAudioDiffusion
+content_encoder:
+  _target_: models.content_encoder.content_encoder.ContentEncoder
+  embed_dim: ${..content_dim}
+  text_encoder:
+    _target_: models.content_encoder.llm_encoder.Qwen2AudioEmbedder
+    model_path: /mnt/petrelfs/taoye/workspace/model/qwen25audio
+    embed_dim: ${...content_dim}
+  audio_encoder:
+    _target_: models.autoencoder.waveform.stable_vae.StableVAEProjectorWrapper
+    vae_dim: ${...autoencoder.latent_dim}
+    embed_dim: 128

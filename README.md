@@ -1,8 +1,9 @@
 # MMEDIT
 
 [![arXiv](https://img.shields.io/badge/arXiv-25xx.xxxxx-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/25xx.xxxxx)
-[![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/CocoBro/MMEdit)
-[![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](./LICENSE)
+[![Project Page](https://img.shields.io/badge/Project%20Page-Demo-purple?style=flat-square)](https://ty0402.github.io/MMEditing/)
+[![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue?style=flat-square)](https://huggingface.co/CocoBro/MMEdit)
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellow?style=flat-square)](./LICENSE)
 
 
 ## Introduction

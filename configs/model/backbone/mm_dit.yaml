@@ -1,4 +1,4 @@
-_target_: models.dit.mmdit_back_new.MMAudio
+_target_: models.dit.mmdit_back.MMAudio
 latent_dim: 128              
 text_dim: 1024                
 hidden_dim: 1024             

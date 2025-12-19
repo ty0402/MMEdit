@@ -21,7 +21,7 @@ download our pretrained model into ./ckpt/mmedit/
 ## Model Usage
 ### 🔧 Dependencies and Installation
 - Python >= 3.10
-- [PyTorch >= 2.3.0](https://pytorch.org/)
+- [PyTorch >= 2.5.0](https://pytorch.org/)
 - [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
 - Dependent models:
   - [Qwen/Qwen2-Audio-7B-Instruct](https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct), download into `./ckpt/qwen2-audio-7B-Instruct/`
@@ -36,8 +36,7 @@ conda create -n mmedit python=3.10 -y
 conda activate mmedit
 
 # 3. Install PyTorch and dependencies
-pip install torch==2.3.0 torchaudio==2.3.0 torchvision --index-url https://download.pytorch.org/whl/cu121
-pip install packaging ninja && pip install flash-attn==2.7.0.post2 --no-build-isolation
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
 
 # Download Qwen2-Audio-7B-Instruct
@@ -51,7 +50,7 @@ huggingface-cli download CocoBro/MMEdit --local-dir ./ckpt/mmedit
 
 For detailed instructions on the data pipeline, and dataset structure used for training, please refer to our separate documentation:
 
-👉 **[Data Pipeline & Preparation Guide](./docs/DATA_PIPELINE.md)**
+👉 **[Data Pipeline & Preparation Guide](./datapipeline/datapipeline.md)**
 
 
 ## ⚡ Quick Start

@@ -24,7 +24,10 @@ logger = logging.getLogger(__name__)
 register_omegaconf_resolvers()
 
 
-    
+import warnings 
+
+
+warnings.filterwarnings("ignore")
 
     
 
@@ -36,16 +39,13 @@ def load_and_process_audio(audio_path: str, target_sr: int) -> torch.Tensor:
     if not path.exists():
         raise FileNotFoundError(f"Audio file not found: {audio_path}")
 
-    # Load audio
     waveform, orig_sr = torchaudio.load(str(path))
 
-    # Convert to mono
     if waveform.ndim == 2:
         waveform = waveform.mean(dim=0)
     elif waveform.ndim > 2:
         waveform = waveform.reshape(-1)
 
-    # Resample if necessary using librosa (consistent with training)
     if target_sr and int(target_sr) != int(orig_sr):
         waveform_np = waveform.cpu().numpy()
         resampled_np = librosa.resample(
@@ -62,6 +62,11 @@ def load_and_process_audio(audio_path: str, target_sr: int) -> torch.Tensor:
 
 
 def main():
+
+    # tf32 of H200 may lead bugs
+    torch.backends.cuda.matmul.allow_tf32 = False
+    torch.backends.cudnn.allow_tf32 = False
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     configs = []
     # load Config
@@ -98,7 +103,7 @@ def main():
     elif "ckpt_dir" in config:
         ckpt_dir = Path(config["ckpt_dir"])
         ckpt_path = ckpt_dir / "model.safetensors"
-        exp_dir = ckpt_dir.parent
+        exp_dir = ckpt_dir
     else:
         raise ValueError("Config must contain 'exp_dir' or 'ckpt_dir'")
 
@@ -137,14 +142,14 @@ def main():
 
 
     batch = {
-        "audio_id": [Path(config["audio_path"]).stem], # List of IDs
+        "audio_id": [Path(config["audio_path"]).stem], 
         "content": [
         {
             "audio": waveform,      
-            "caption": config["caption"] # 直接传入单个字符串 String
+            "caption": config["caption"] 
         }
     ],
-        "task": ["audio_editing"]                # Task name
+        "task": ["audio_editing"]                
     }
 
     def to_device(data):

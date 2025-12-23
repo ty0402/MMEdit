@@ -3,8 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-25xx.xxxxx-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/25xx.xxxxx)
 [![Project Page](https://img.shields.io/badge/Project%20Page-Demo-purple?style=flat-square)](https://ty0402.github.io/MMEditing/)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue?style=flat-square)](https://huggingface.co/CocoBro/MMEdit)
-[![License](https://img.shields.io/badge/License-Apache%202.0-yellow?style=flat-square)](./LICENSE)
-
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-orange?style=flat-square)](https://huggingface.co/spaces/CocoBro/MMEdit)
 
 ## Introduction
 🟣 **MMEDIT** is a state-of-the-art audio generation model built upon the powerful [Qwen2-Audio 7B](https://huggingface.co/Qwen/Qwen2-Audio-7B). It leverages the robust audio understanding and instruction-following capabilities of the large language model to achieve precise and high-fidelity audio editing.
@@ -62,12 +61,16 @@ For detailed instructions on the data pipeline, and dataset structure used for t
 ### 1. Inference
 You can quickly generate example audio with the following code:
 
-```
+
+- add 
+
+```bash
 bash bash_scripts/infer_single.sh
 ```
 
 The output will be save at inference/example
 
+- drop
 
 ---
 
@@ -80,25 +83,33 @@ Before running inference or training, please check `configs/config.yaml`. The pr
 To run batch inference using the provided scripts:
 
 ```bash
-cd src
 bash bash_scripts/inference.sh
 ```
 
 ### 3. Training
 Ensure you have downloaded the **Qwen2-Audio-7B-Instruct** checkpoint to `./ckpt/qwen2-audio-7B-instruct` and prepared your data according to the [Data Pipeline Guide](./docs/DATA_PIPELINE.md).
 
+
+This script serves as a sanity check that the training pipeline is correctly wired up.
 ```bash
-cd src
+
 # Launch distributed training
-bash bash_scripts/train_dist.sh
+bash bash_scripts/train_edit_1gpu.sh
 ```
+
+If you need to modify the dataset, please edit the configuration files under:
+configs/data/
+Other training-related hyperparameters and settings can be adjusted in:
+configs/train.yaml \
+For a more detailed end-to-end training tutorial and configuration examples, please refer to: https://github.com/wsntxxn/UniFlow-Audio
 
 ---
 
 ## 📝 Todo
-- [ ] Release inference code and checkpoints.
+
+- [x] Release inference code and checkpoints.
+- [x] Add HuggingFace Gradio Demo.
 - [ ] Release training scripts.
-- [ ] Add HuggingFace Gradio Demo.
 - [ ] Release evaluation metrics and post-processing tools.
 
 ## 🤝 Acknowledgement

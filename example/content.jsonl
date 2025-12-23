@@ -1,1 +1,10 @@
-{"audio_id": "add_audiocaps_1", "content": "example/Ym8O802VvJes.wav", "caption": "Mix in dog barking in the middle."}
+{"audio_id": "add_1", "content": "example/Ym8O802VvJes.wav", "caption": "Mix in dog barking in the middle."}
+{"audio_id": "add_2", "content": "example/YDKM2KjNkX18.wav", "caption": "Incorporate Telephone bell ringing into the background."}
+{"audio_id": "drop_1","content": "example/drop_audiocaps_1.wav", "caption": "Erase the rain falling sound  from the background."}
+{"audio_id": "drop_2","content": "example/drop_audiocaps_2.wav", "caption": "Remove the sound of several beeps."}
+{"audio_id": "replace_1","content": "exmaple/replace_audiocaps_1.wav", "caption": "Change the farting sound to a dog barking."}
+{"audio_id": "reorder_audiocaps_1","content": "example/reorder_audiocaps_1.wav", "caption": "Switch the positions of the woman's voice and whistling."}
+{"audio_id": "reorder_audiocaps_2","content": "example/reorder_audiocaps_2.wav", "caption": "Make a vehicle with a siren play before children cry together."}
+{"audio_id": "speed_1", "content": "example/speed_audiocaps_10.wav", "caption": "Slow down bell considerably."}
+{"audio_id": "loud_audiocaps_1","content": "example/loud_audiocaps_1.wav", "caption": "Turn down the volume of a bell ringing."}
+{"audio_id": "loud_audiocaps_2","content": "example/loud_audiocaps_2.wav", "caption": "Increase the volume of the dog barking."}

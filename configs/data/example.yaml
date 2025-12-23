@@ -2,6 +2,15 @@ defaults:
   - default
   - _self_
 
+
+
+train_data_list:
+  - ${..example.test}
+
+
+val_data_list:
+  - ${..example.test}
+  
 test_data_list:
   # - ${..libritts.test}
   # - ${..add.test}

@@ -25,7 +25,8 @@ register_omegaconf_resolvers()
 
 
 def main():
-
+    torch.backends.cuda.matmul.allow_tf32 = False
+    torch.backends.cudnn.allow_tf32 = False
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     configs = []
 
@@ -49,7 +50,7 @@ def main():
     elif "ckpt_dir" in config:
         ckpt_dir = Path(config["ckpt_dir"])
         ckpt_path = ckpt_dir / "model.safetensors"
-        exp_dir = ckpt_dir.parent
+        exp_dir = ckpt_dir
 
     print(f'\n ckpt path: {ckpt_path}\n ')
 

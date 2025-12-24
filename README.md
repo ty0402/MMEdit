@@ -1,6 +1,6 @@
 # MMEDIT
 
-[![arXiv](https://img.shields.io/arxiv/v/2512.20339)](https://arxiv.org/abs/2512.20339)
+[![arXiv](https://img.shields.io/badge/arXiv-2512.20339-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2512.20339)
 [![Project Page](https://img.shields.io/badge/Project%20Page-Demo-purple?style=flat-square)](https://ty0402.github.io/MMEditing/)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue?style=flat-square)](https://huggingface.co/CocoBro/MMEdit)
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-orange?style=flat-square)](https://huggingface.co/spaces/CocoBro/MMEdit)

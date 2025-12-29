@@ -1,12 +1,12 @@
 # MMEDIT
 
-[![arXiv](https://img.shields.io/badge/arXiv-25xx.xxxxx-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/25xx.xxxxx)
+[![arXiv](https://img.shields.io/badge/arXiv-2512.20339-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2512.20339)
 [![Project Page](https://img.shields.io/badge/Project%20Page-Demo-purple?style=flat-square)](https://ty0402.github.io/MMEditing/)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue?style=flat-square)](https://huggingface.co/CocoBro/MMEdit)
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-orange?style=flat-square)](https://huggingface.co/spaces/CocoBro/MMEdit)
 
 ## Introduction
-🟣 **MMEDIT** is a state-of-the-art audio generation model built upon the powerful [Qwen2-Audio 7B](https://huggingface.co/Qwen/Qwen2-Audio-7B). It leverages the robust audio understanding and instruction-following capabilities of the large language model to achieve precise and high-fidelity audio editing.
+🟣 **MMEDIT** is an audio editing model built upon the powerful [Qwen2-Audio 7B](https://huggingface.co/Qwen/Qwen2-Audio-7B). It leverages the robust audio understanding and instruction-following capabilities of the large language model to achieve precise and high-fidelity audio editing.
 
 ---
 ## Model Download
